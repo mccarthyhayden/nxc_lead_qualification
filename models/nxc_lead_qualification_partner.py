@@ -9,7 +9,7 @@ class NxcLeadQualificationPartner(models.Model):
     problems_we_solve_score = fields.Integer(string="Problems We Solve")
     growth_factor_score = fields.Integer(string="Growth Factor")
     core_value_alignment_score = fields.Integer(string="Core Value Alignment")
-    mql_score = fields.Integer(string="MQL Score")
+    mql_score = fields.Integer(string="MQL Score" compute="_compute_mql_score", readonly=True)
 
     #Other MQL Items
     mql_criteria_1 = fields.Text(string="Compelling Reason to Buy")
@@ -27,3 +27,7 @@ class NxcLeadQualificationPartner(models.Model):
     sql_criteria_7 = fields.Text(string="Target Locations")
     sql_criteria_8 = fields.Text(string="Specific Projects/$$$/Dates")
     sql_criteria_9 = fields.Text(string="Confirmation of Value Proposition")
+
+    def _compute_mql_score(self):
+    # Calculate the MQL score based on the "MQL Score Items".
+        self.mql_score = self.company_size_score + self.market_position_score + self.problems_we_solve_score + self.growth_factor_score + self.core_value_alignment_score
