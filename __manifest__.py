@@ -6,6 +6,7 @@
     'description': 'This custom module was developed for Next Chapter Manufacturing to enrich lead tracking efforts in the contacts module.',
     'author': 'Hayden McCarthy',
     'website': 'https://www.nxcmfg.com',
+    'license': 'LPGL-3'
     'depends': ['contacts'],
     'data': [
         'views/view_nxc_lead_qualification_partner_form.xml',
