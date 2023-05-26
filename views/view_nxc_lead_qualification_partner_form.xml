@@ -6,35 +6,35 @@
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
-        <sheet>
-          <page string="Strategic Account Plan" name="page_strategic_account_plan" attrs="{'invisible': [['is_company','!=', True]]}">
-            <group name="group_strategic_account_plan">
-              <group name="group_strategic_account_plan_left" string="Market Qualification (MQL)  (1 - Lowest, 5 - Highest)">
-                <field name="company_size_score" widget="integer"/>
-                <field name="market_position_score" widget="integer" help="1-Laggard, 5-Leader"/>
-                <field name="problems_we_solve_score" widget="integer"/>
-                <field name="growth_factor_score" widget="integer"/>
-                <field name="core_value_alignment_score" widget="integer"/>
-                <field name="mql_score" widget="integer" readonly="True"/>
-                <field name="mql_criteria_1" widget="text"/>
-                <field name="mql_criteria_2" widget="text"/>
-                <field name="mql_criteria_3" widget="text"/>
-                <field name="mql_criteria_4" widget="text"/>
-              </group>
-              <group name="group_strategic_account_plan_right" string="Sales Qualification (SQL)">
-                <field name="sql_criteria_1" widget="text"/>
-                <field name="sql_criteria_2" widget="text" help="Ask customer who the key decision makers are and what are their specific procurement process requirements."/>
-                <field name="sql_criteria_3" widget="text" help="Discover customer-specific success requirements. Which products best fit their needs?"/>
-                <field name="sql_criteria_4" widget="text" help="Estimate the result of using our products and compare to the current operating data."/>
-                <field name="sql_criteria_5" widget="text" help="Identify other suppliers that are eligible/competing to win the job."/>
-                <field name="sql_criteria_6" widget="text" help="Identify core values shared between customer and Next Chapter Mfg."/>
-                <field name="sql_criteria_7" widget="text" help="Identify which customer locations could benefit from our products/services."/>
-                <field name="sql_criteria_8" widget="text" help="What specific projects could benefit from our products, what are their budgets, timelines?"/>
-                <field name="sql_criteria_9" widget="text" help="Receive customer feedback from value proposition."/>
-              </group>
+      <xpath expr="//page[@name='notes']" position="after">
+        <page string="Strategic Account Plan" name="page_strategic_account_plan" attrs="{'invisible': [['is_company','!=', True]]}">
+          <group name="group_strategic_account_plan">
+            <group name="group_strategic_account_plan_left" string="Market Qualification (MQL)  (1 - Lowest, 5 - Highest)">
+              <field name="company_size_score" widget="integer"/>
+              <field name="market_position_score" widget="integer" help="1-Laggard, 5-Leader"/>
+              <field name="problems_we_solve_score" widget="integer"/>
+              <field name="growth_factor_score" widget="integer"/>
+              <field name="core_value_alignment_score" widget="integer"/>
+              <field name="mql_score" widget="integer" readonly="True"/>
+              <field name="mql_criteria_1" widget="text"/>
+              <field name="mql_criteria_2" widget="text"/>
+              <field name="mql_criteria_3" widget="text"/>
+              <field name="mql_criteria_4" widget="text"/>
             </group>
-          </page>
-        </sheet>
+            <group name="group_strategic_account_plan_right" string="Sales Qualification (SQL)">
+              <field name="sql_criteria_1" widget="text"/>
+              <field name="sql_criteria_2" widget="text" help="Ask customer who the key decision makers are and what are their specific procurement process requirements."/>
+              <field name="sql_criteria_3" widget="text" help="Discover customer-specific success requirements. Which products best fit their needs?"/>
+              <field name="sql_criteria_4" widget="text" help="Estimate the result of using our products and compare to the current operating data."/>
+              <field name="sql_criteria_5" widget="text" help="Identify other suppliers that are eligible/competing to win the job."/>
+              <field name="sql_criteria_6" widget="text" help="Identify core values shared between customer and Next Chapter Mfg."/>
+              <field name="sql_criteria_7" widget="text" help="Identify which customer locations could benefit from our products/services."/>
+              <field name="sql_criteria_8" widget="text" help="What specific projects could benefit from our products, what are their budgets, timelines?"/>
+              <field name="sql_criteria_9" widget="text" help="Receive customer feedback from value proposition."/>
+            </group>
+          </group>
+        </page>
+      </xpath>
     </record>
   </data>
 </odoo>
