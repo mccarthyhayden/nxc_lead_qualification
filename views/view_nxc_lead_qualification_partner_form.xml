@@ -15,7 +15,7 @@
                 <field name="problems_we_solve_score" widget="integer"/>
                 <field name="growth_factor_score" widget="integer"/>
                 <field name="core_value_alignment_score" widget="integer"/>
-                <field name="mql_score" widget="integer" readonly="True"/>
+                <field name="mql_score" widget="integer"/>
                 <field name="mql_criteria_1" widget="text"/>
                 <field name="mql_criteria_2" widget="text"/>
                 <field name="mql_criteria_3" widget="text"/>
