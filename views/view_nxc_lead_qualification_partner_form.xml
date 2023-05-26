@@ -3,11 +3,12 @@
   <data>
     <record id="view_nxc_lead_qualification_partner_form" model="ir.ui.view">
       <field name="name">nxc.contacts.lead.qualification.form</field>
-      <field name="model">nxc.lead.qualification</field>
+      <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
         <form string="Strategic Account Plan" version="1.0">
           <sheet>
+            <!--<xpath expr="//notebook/page[last()]/following-sibling::page">-->
             <page string="Strategic Account Plan" name="page_strategic_account_plan" attrs="{"invisible": [["is_company","=",False]]}">
               <group name="group_strategic_account_plan">
                 <group name="group_strategic_account_plan_left" string="Market Qualification (MQL)  (1 - Lowest, 5 - Highest)">
@@ -35,6 +36,7 @@
                 </group>
               </group>
             </page>
+            <!--</xpath>-->
           </sheet>
         </form>
     </record>
