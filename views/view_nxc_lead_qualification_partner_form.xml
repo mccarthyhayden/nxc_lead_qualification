@@ -9,7 +9,7 @@
         <form string="Strategic Account Plan" version="1.0">
           <sheet>
             <!--<xpath expr="//notebook/page[last()]/following-sibling::page">-->
-            <page string="Strategic Account Plan" name="page_strategic_account_plan" attrs="{"invisible": [["is_company","=",False]]}">
+            <page string="Strategic Account Plan" name="page_strategic_account_plan" attrs="{'invisible': [['is_company','!=', True]]}">
               <group name="group_strategic_account_plan">
                 <group name="group_strategic_account_plan_left" string="Market Qualification (MQL)  (1 - Lowest, 5 - Highest)">
                   <field name="company_size_score" widget="integer"/>
