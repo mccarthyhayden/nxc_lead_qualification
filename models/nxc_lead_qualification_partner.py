@@ -28,6 +28,7 @@ class NxcLeadQualificationPartner(models.Model):
     sql_criteria_8 = fields.Text(string="Specific Projects/$$$/Dates")
     sql_criteria_9 = fields.Text(string="Confirmation of Value Proposition")
 
+    @api.onchange('company_size_score', 'market_position_score', 'problems_we_solve_score', 'growth_factor_score', 'core_value_alignment_score')
     def _compute_mql_score(self):
     # Calculate the MQL score based on the "MQL Score Items".
         self.mql_score = self.company_size_score + self.market_position_score + self.problems_we_solve_score + self.growth_factor_score + self.core_value_alignment_score
