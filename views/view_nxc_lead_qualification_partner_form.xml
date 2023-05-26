@@ -4,7 +4,7 @@
     <record id="view_nxc_lead_qualification_partner_form" model="ir.ui.view">
       <field name="name">nxc.contacts.lead.qualification.form</field>
       <field name="model">nxc.lead.qualification</field>
-      <field name="inherit_id">base.view_partner_form</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
         <form string="Strategic Account Plan" version="1.0">
           <sheet>
