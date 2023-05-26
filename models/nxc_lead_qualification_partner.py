@@ -9,7 +9,7 @@ class NxcLeadQualificationPartner(models.Model):
     problems_we_solve_score = fields.Integer(string="Problems We Solve")
     growth_factor_score = fields.Integer(string="Growth Factor")
     core_value_alignment_score = fields.Integer(string="Core Value Alignment")
-    mql_score = fields.Integer(string="MQL Score", compute="_compute_mql_score", readonly=True)
+    mql_score = fields.Integer(string="MQL Score", compute="_compute_mql_score")
 
     #Other MQL Items
     mql_criteria_1 = fields.Text(string="Compelling Reason to Buy")
