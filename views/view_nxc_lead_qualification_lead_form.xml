@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+  <data>
+    <record id="view_nxc_lead_qualification_lead_form" model="ir.ui.view">
+      <field name="name">nxc.crm.lead.qualification.form</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='priority']" position="attributes">
+          <attribute name="attrs">{"invisible": [["stage_id","=",1]]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='priority']" position="after">
+          <field name="mql_priority" string="MQL Priority" widget="priority" attrs="{'invisible': [['stage_id','!=',1]]}"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

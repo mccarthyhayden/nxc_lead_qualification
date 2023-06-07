@@ -7,9 +7,11 @@
     'author': 'Hayden McCarthy',
     'website': 'https://www.nxcmfg.com',
     'license': 'AGPL-3',
-    'depends': ['contacts'],
+    'depends': ['contacts', 'crm'],
     'data': [
         'views/view_nxc_lead_qualification_partner_form.xml',
+        'views/view_nxc_lead_qualification_lead_form.xml',
+        'views/view_nxc_lead_qualification_lead_kanban.xml',
     ],
     'installable': True,
     'auto_install': False,
