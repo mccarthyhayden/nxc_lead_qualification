@@ -1,6 +1,6 @@
 from odoo import api, fields, models
 
-class NxcMqlPriorityOpportunity(models.Model):
+class Lead(models.Model):
     _inherit = 'crm.lead'
     
     #MQL Score Items
