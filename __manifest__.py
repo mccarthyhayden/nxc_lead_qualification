@@ -13,6 +13,11 @@
         'views/view_nxc_lead_qualification_lead_form.xml',
         'views/view_nxc_lead_qualification_lead_kanban.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'nxc_lead_qualification/static/assets/priority_blue.css',
+        ]
+    },
     'installable': True,
     'auto_install': False,
 }
