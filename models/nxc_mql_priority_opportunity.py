@@ -12,7 +12,7 @@ class Lead(models.Model):
         ('3','MQL 21-25'),
     ], string="MQL Priority")
 
-    @api.onchange('stage_id', 'partner_id', 'partner_id.mql_score')
+    @api.depends('stage_id', 'partner_id', 'partner_id.mql_score')
     def _compute_mql_priority(self):
         # Calculate the MQL Priority based on the value of MQL Score field from partner.
         for lead in self:
