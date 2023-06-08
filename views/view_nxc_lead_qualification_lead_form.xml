@@ -10,7 +10,7 @@
           <attribute name="attrs">{"invisible": [["stage_id","=",1]]}</attribute>
         </xpath>
         <xpath expr="//field[@name='priority']" position="after">
-          <field name="mql_priority" string="MQL Priority" widget="priority" attrs="{'invisible': [['stage_id','!=',1]]}" readonly="True"/>
+          <field name="mql_priority" string="MQL Priority" widget="priority" attrs="{'invisible': [['stage_id','!=',1]]}" readonly="True" force_save="True"/>
         </xpath>
       </field>
     </record>
