@@ -14,7 +14,7 @@
         'views/view_nxc_lead_qualification_lead_kanban.xml',
     ],
     'assets': {
-        'web.assets_backend': [
+        'web.assets_frontend': [
             'static/assets/priority_blue.css',
         ]
     },
