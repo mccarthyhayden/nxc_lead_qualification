@@ -16,7 +16,7 @@ class Lead(models.Model):
     def _compute_mql_priority(self):
         # Calculate the MQL Priority based on the value of MQL Score field from partner.
         for lead in self:
-            if lead.stage_id.id == '1':
+            if lead.stage_id.id == 1:
                 if lead.partner_id.mql_score < 11:
                     lead['mql_priority'] = '0'
                 elif 11 <= lead.partner_id.mql_score <= 15:
