@@ -2,6 +2,8 @@ from odoo import api, fields, models
 
 class Lead(models.Model):
     _inherit = 'crm.lead'
+
+    _order = "mql_priority desc, priority desc, id desc"
     
     #MQL Score Items
     mql_priority = fields.Selection([
@@ -19,15 +21,18 @@ class Lead(models.Model):
                 order = 'mql_priority desc, ' + self._order if self._order else 'mql_priority desc'
         return super(Lead, self).search(args, offset=offset, limit=limit, order=order, count=count)
 
-    @api.onchange('partner_id', 'partner_id.mql_score')
+    @api.onchange('stage_id', 'partner_id', 'partner_id.mql_score')
     def _compute_mql_priority(self):
         # Calculate the MQL Priority based on the value of MQL Score field from partner.
         for lead in self:
-            if lead.partner_id.mql_score < 11:
-                lead['mql_priority'] = '0'
-            elif 11 <= lead.partner_id.mql_score <= 15:
-                lead['mql_priority'] = '1'
-            elif 16 <= lead.partner_id.mql_score <= 20:
-                lead['mql_priority'] = '2'
-            elif 21 <= lead.partner_id.mql_score <= 25:
-                lead['mql_priority'] = '3'
+            if lead.stage_id == '1':
+                if lead.partner_id.mql_score < 11:
+                    lead['mql_priority'] = '0'
+                elif 11 <= lead.partner_id.mql_score <= 15:
+                    lead['mql_priority'] = '1'
+                elif 16 <= lead.partner_id.mql_score <= 20:
+                    lead['mql_priority'] = '2'
+                elif 21 <= lead.partner_id.mql_score <= 25:
+                    lead['mql_priority'] = '3'
+            else:
+                lead['mql_priority'] = False
