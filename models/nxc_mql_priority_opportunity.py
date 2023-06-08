@@ -14,12 +14,10 @@ class Lead(models.Model):
 
     @api.model
     def search(self, args, offset=0, limit=None, order=None, count=False):
-        if not order or 'mql_priority' not in order:
-            stage_id = self.env.context.get('default_stage_id')
-            if stage_id == '1':
-                order = 'mql_priority desc'
-            else:
-                order = 'priority desc'
+        stage_id = self.env.context.get('default_stage_id')
+        if stage_id == '1':
+            if not order or 'mql_priority' not in order:
+                order = 'mql_priority desc, ' + self._order
         return super(Lead, self).search(args, offset=offset, limit=limit, order=order, count=count)
 
     @api.onchange('partner_id', 'partner_id.mql_score')
