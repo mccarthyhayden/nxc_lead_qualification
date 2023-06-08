@@ -15,7 +15,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'nxc_lead_qualification/static/assets/priority_blue.css',
+            'static/assets/priority_blue.css',
         ]
     },
     'installable': True,
