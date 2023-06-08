@@ -6,9 +6,6 @@
       <field name="model">crm.lead</field>
       <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
       <field name="arch" type="xml">
-        <xpath expr="//kanban[1]/templates[1]/t[1]" position="attributes">
-          <attribute name="default_order">mql_priority desc</attribute>
-        </xpath>
         <xpath expr="//kanban[1]/templates[1]/t[1]/div[1]/div[4]/div[1]/div[1]/field[@name='priority']" position="attributes">
           <attribute name="attrs">{"invisible": [["stage_id","=",1]]}</attribute>
         </xpath>
