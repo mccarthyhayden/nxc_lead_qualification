@@ -2,6 +2,7 @@ from odoo import api, fields, models
 
 class Lead(models.Model):
     _inherit = 'crm.lead'
+    _order = ''
     
     #MQL Score Items
     mql_priority = fields.Selection([
@@ -12,12 +13,14 @@ class Lead(models.Model):
     ], string="MQL Priority")
 
     @api.model
-    def default_get(self, fields_list):
-        res = super(Lead, self).default_get(fields_list)
-        stage_id = self.env.context.get('default_stage_id')
-        if stage_id == '1':
-            res['order'] = 'mql_priority desc, id desc'
-        return res
+    def search(self, args, offset=0, limit=None, order=None, count=False):
+        if not order or 'mql_priority' not in order:
+            stage_id = self.env.context.get('default_stage_id')
+            if stage_id == '1':
+                order = 'mql_priority desc'
+            else:
+                order = 'priority desc'
+        return super(Lead, self).search(args, offset=offset, limit=limit, order=order, count=count)
 
     @api.onchange('partner_id', 'partner_id.mql_score')
     def _compute_mql_priority(self):
